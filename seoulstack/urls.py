@@ -1,3 +1,4 @@
+import os
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -6,6 +7,8 @@ from accounts.views import faq, guidelines, welcome
 from story.views import frontpage, submit, newest, vote, story
 
 urlpatterns = [
+    path(os.getenv('SECRET_ADMIN_URL') + '/admin/', admin.site.urls),
+
     # story
     path('', frontpage, name='frontpage'),
     path('submit/', submit, name='submit'),
