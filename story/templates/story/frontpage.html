@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="frontpage">
+	<div class="container">
+		<h1 class="title">Welcome to SeoulStack</h1>
+		
+		<p>
+			Post a question or an interesting article for Seoul's Expat Community. And add
+			comments.
+		</p>
+		<p>
+			Go to the <a href="{% url 'guidelines' %}">guidelines</a> or
+			<a href="{% url 'faq' %}">FAQ</a> page to read the fine print.
+		</p>
+		<div style="letter-spacing: 6px; width: 400px; margin: 0; text-align: justify">
+			- - - - - - - - - - -
+		</div>
+		<h4>Top Stories & Questions (by votes)</h4>
+		{% include 'story/parts/stories.html' %}
+	</div>
+</div>
+{% endblock %}

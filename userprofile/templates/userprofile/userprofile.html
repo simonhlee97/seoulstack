@@ -1,0 +1,8 @@
+
+<!-- put this inside dashboard.html -->
+<h2>Hello, {{ user.username }}</h2>
+<p>{{ user.number_of_votes }} votes received</p>
+<p><a href="{% url 'submissions' user.username %}">View Your Submissions</a></p>
+<p><a href="{% url 'votes' user.username %}">View Your Votes</a></p>
+
+

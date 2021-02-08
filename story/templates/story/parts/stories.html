@@ -1,0 +1,12 @@
+<ol>
+	{% for story in stories %}
+	<li class="story-item" style="margin-bottom: 1em">
+		<a href="{{ story.url }}" target="_blank">{{story.title}}</a>
+		<br />
+		<a href="{% url 'vote' story.id %}">&#9650;</a> | {{story.created_by.username}} |
+		{{story.created_at|timesince}} ago |
+		<a href="{% url 'story' story.id %}">discuss</a>
+		<br />
+	</li>
+	{% endfor %}
+</ol>

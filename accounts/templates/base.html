@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}SeoulStack{% endblock %}</title>
+        <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="{% static 'favicon.png' %}" />
+	</head>
+	<body>
+		<div class="app">
+			<div class="navbar">
+				<nav class="left-nav">
+					<a href="/"><span id="logo">S</span> <span id="sitename">SEOULSTACK</span></a>
+					{% if user.is_authenticated %}
+                        <a href="{% url 'welcome' %}"">welcome</a> | 
+                    {% endif %} 
+                    <a href="{% url 'newest' %}">new</a> | 
+					<a href="{% url 'submit' %}">submit</a>
+				</nav>
+				<nav class="right-nav">
+					{% if request.user.is_authenticated %}
+					<a href="{% url 'dashboard' %}">Hello {{ request.user.first_name }}</a> |
+					<a href="{% url 'logout' %}">logout</a>
+					{% else %}
+					<a href="{% url 'login' %}">login</a>
+
+					{% endif %}
+                </nav>
+            </div><!-- navbar -->
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message|safe }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <main class="content-main">{% block content %} {% endblock %}</main>
+
+            <footer class="footer">
+                <hr />
+                <nav class="footernav">
+                    <a href="{% url 'guidelines' %}">Guidelines</a> |
+                    <a href="{% url 'faq' %}">FAQ</a> | 
+                    <a href="mailto:indyfob2008@gmail.com">Contact</a>
+                </nav>
+                <div class="searchbar">
+                    <form method="get" action="#!">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <span>Search: </span>
+                                <input type="text" class="input" placeholder="" name="query" />
+                            </div>
+
+                            <div class="control">
+                                <button class="search-button">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </footer>
+		</div>
+	</body>
+</html>

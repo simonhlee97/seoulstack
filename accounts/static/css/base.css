@@ -1,0 +1,198 @@
+/* css reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* CSS debug */
+[debug],
+[debug] *:not(g):not(path) {
+	color: yellow !important;
+	background: dodgerblue !important;
+	outline: solid 0.25rem tomato !important;
+	box-shadow: none !important;
+	filter: none !important;
+}
+/* CDN: */
+/* https://gist.githack.com/simonhlee97/1c0273791121758c89130731afb7e4fd/raw/0ad20ca084b7d9eeeda96a95bca3d3b4c8bd334d/simon.css */
+
+:root {
+	--black: #252323;
+	--grey: #555050;
+	--blue: #3535f3;
+	--success: #017e01;
+	--alert: #ff6a50;
+	--danger: #8b0000;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Geneva, sans-serif;
+	background-color: white;
+	font-size: 10pt;
+	color: #828282;
+}
+#sitename {
+	letter-spacing: 2px;
+	font-weight: bolder;
+}
+#logo {
+	color: white;
+	border: 1px solid white;
+	padding: 2px 4px;
+	margin: 1px 1px 1px 1px;
+}
+.app {
+	background-color: whitesmoke;
+}
+
+.navbar {
+	background-color: #ff6600;
+	margin-top: 0px;
+	padding: 6px 5px 6px 1px;
+	color: black;
+	display: flex;
+}
+#linebreak {
+	display: block;
+}
+.left-nav a {
+	margin: 1.7px;
+}
+.left-nav {
+	flex-grow: 1;
+	margin-right: 5px;
+	padding-left: 2px;
+}
+.right-nav {
+	flex-grow: 2;
+	text-align: right;
+}
+.content-main {
+	padding-left: 9px;
+	min-height: 85vh;
+}
+input {
+	font-family: monospace;
+	font-size: 10pt;
+}
+input[type=\"submit\"] {
+	font-family: Verdana, Geneva, sans-serif;
+}
+textarea {
+	font-family: monospace;
+	font-size: 10pt;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+.navbar a:hover {
+	color: white;
+}
+
+/* layouts */
+
+/* flexbox */
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.flex-container > .flex-item {
+	background-color: #f1f1f1;
+	width: 368px;
+	margin: 9px;
+	text-align: center;
+}
+
+/* Breakpoints
+320px — 480px: Mobile devices (ignore)
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more —  Extra large screens, TV */
+
+@media screen and (min-width: 769px) {
+	.app {
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+	.navbar {
+		margin-top: 8px;
+	}
+}
+@media screen and (min-width: 860px) {
+	.app {
+		margin-left: 4.2%;
+		margin-right: 4.2%;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.app {
+		margin-left: 5.3%;
+		margin-right: 5.3%;
+	}
+}
+@media screen and (min-width: 1201px) {
+	.app {
+		margin-left: 8%;
+		margin-right: 8%;
+	}
+}
+
+.footer {
+	text-align: center;
+	font-size: 8pt;
+}
+.footernav {
+	margin: 1.7em 0;
+}
+.searchbar {
+	color: #7a7575;
+	padding-bottom: 2.3em;
+	font-size: 10pt;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+.searchbar input[type='text'] {
+	width: 340px;
+}
+.search-button {
+	margin: 12px;
+}
+.footer hr {
+	margin: 2em 0em;
+	border: 1.6px solid #ff6600;
+}
+.login-page {
+	color: black;
+}
+.login-page a {
+	color: blue;
+	text-decoration: underline;
+}
+.login-page a:hover {
+	color: rgb(25, 25, 255);
+	text-decoration: none;
+}
+
+.comment-body {
+	color: black;
+}
+
+.signup-form ul {
+	display: none;
+}
+
+/* Triangle (up-arrow) */
+.triangle{
+	width: 0;
+	height: 0;
+	border-width: 0 15px 26.0px 15px;
+	border-color: transparent transparent #333030 transparent;
+	border-style: solid;
+}

@@ -1,0 +1,63 @@
+.bold-italics {
+	font-weight: 600;
+	color: #333131;
+	font-style: italic;
+}
+.welcome-page {
+	width: 94%;
+	margin: 4em auto;
+	color: black;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.welcome-page a {
+	color: #ff6600;
+	text-decoration: none;
+}
+.welcome {
+	background-color: whitesmoke;
+	padding: 0.4em;
+}
+.welcome-page .alt-logo {
+	font-size: 47pt;
+	width: 500px;
+	height: 500px;
+	color: white;
+	background-color: #ff6600;
+	padding: 20px 26px 13px 26px;
+}
+.welcome-page .header {
+	color: #ff6600;
+	letter-spacing: 3px;
+	font-size: 47pt;
+	margin-left: 0.5em;
+	font-weight: 200;
+}
+.welcome-sub {
+	margin-top: 1em;
+	letter-spacing: 1px;
+	font-weight: 800;
+}
+.welcome p {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 9pt;
+	line-height: 138%;
+}
+.welcome hr {
+	margin: 2em 0em;
+	border: 1.6px solid #ff6600;
+}
+@media screen and (min-width: 769px) {
+	.welcome-page {
+		max-width: 600px;
+	}
+}
+@media screen and (max-width: 520px) {
+	.welcome-page .alt-logo {
+		font-size: 26pt;
+		width: 300px;
+		height: 300px;
+	}
+	.welcome-page .header {
+		font-size: 26pt;
+	}
+}

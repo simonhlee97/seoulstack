@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+    <h3>Submit an interesting story for the Seoul Expat Community</h3>
+    <div>
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="control">
+                <button>Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

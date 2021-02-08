@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+	<div>
+		<h1 class="title">{{ story.title}}</h1>
+		<p>{{ story.number_of_votes}} upvotes | posted by: {{story.created_by.username}}</p>
+		<p>go to link: <a href="{{ story.url }}" target="_blank">{{ story.url }}</a></p>
+        {% if not story.created_by == request.user %}
+            <a href="{% url 'vote' story.id %}?next_page=story">&#9650; Vote</a>
+        {% endif %}
+    </div>
+    
+    <br>
+    <hr style="border-top: 0.1px solid #eee9e9; width:98%;text-align:left;margin-left:0" />
+    <br>
+
+    <h2>Comments</h2>
+
+    {% for comment in story.comments.all %}
+        <article>
+                <div>
+                    <p>
+                        <strong>{{ comment.created_by.username }}</strong> <small>{{ comment.created_at|timesince }} ago</small><br>
+                        {{ comment.body }}
+                    </p>
+                </div>
+        </article>
+    {% empty %}
+        <p>No comments yet!</p>
+    {% endfor %}
+
+    <br>
+    <hr style="border-top: 0.1px solid #eee9e9; width:98%;text-align:left;margin-left:0" />
+    <br>
+    
+
+    <h2 class="subtitle">Add comment</h2>
+
+    {% if request.user.is_authenticated %}
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="field">
+                <div class="field">
+                    <button>Submit</button>
+                </div>
+            </div>
+        </form>
+    {% else %}
+        <p>Please log in to comment!</p>
+    {% endif %}
+</div>
+{% endblock %}
