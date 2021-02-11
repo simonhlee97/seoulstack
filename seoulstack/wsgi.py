@@ -7,9 +7,10 @@ dotenv.load_dotenv(
     os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
 )
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testsite.settings.development')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                      'seoulstack.settings.development')
 
 if os.getenv('DJANGO_SETTINGS_MODULE'):
- os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
+    os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
 
 application = get_wsgi_application()

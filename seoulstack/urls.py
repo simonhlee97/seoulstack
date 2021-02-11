@@ -1,4 +1,4 @@
-import os
+# import os
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -7,7 +7,6 @@ from accounts.views import faq, guidelines, welcome
 from story.views import frontpage, submit, newest, vote, story
 
 urlpatterns = [
-    path(os.getenv('SECRET_ADMIN_URL') + '/admin/', admin.site.urls),
 
     # story
     path('', frontpage, name='frontpage'),
@@ -18,9 +17,6 @@ urlpatterns = [
 
     path('u/', include('userprofile.urls')),
 
-
-
-
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
 
@@ -30,7 +26,7 @@ urlpatterns = [
     path('welcome/', welcome, name='welcome'),
 
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+# preparing for production
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL,
+#                           document_root=settings.MEDIA_ROOT)
